@@ -46,14 +46,14 @@ export const heroData = {
   contextRibbon:
     "Vietnam-based profile with banking and product delivery experience spanning Cambodia contexts and Swiss digital banking collaboration.",
   portrait: {
-    src: "/ta-anh-luan-avatar.jpg",
+    src: "ta-anh-luan-avatar.jpg",
     alt: "Ta Anh Luan portrait",
     caption: "Principal BA / Product Owner with BFSI delivery and digital banking experience.",
   },
   ctas: [
     { label: "View Experience", href: "#experience", primary: true },
     { label: "Contact Me", href: "#contact", primary: false },
-    { label: "Download CV", href: "/Ta-Anh-Luan-CV.pdf", primary: false, download: true },
+    { label: "Download CV", href: "Ta-Anh-Luan-CV.pdf", primary: false, download: true },
   ],
   operatingLens: [
     "Translates complex business requirements into structured product direction.",
