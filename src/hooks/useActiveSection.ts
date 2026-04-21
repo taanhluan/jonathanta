@@ -28,8 +28,8 @@ export function useActiveSection(sectionIds: readonly string[]) {
         }
       },
       {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.2, 0.35, 0.5, 0.75],
+        rootMargin: "-10% 0px -66% 0px",
+        threshold: [0.1],
       },
     );
 
