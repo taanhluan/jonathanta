@@ -143,6 +143,59 @@ export const experiences = [
   },
 ];
 
+export const experienceSceneEntries = [
+  {
+    company: "Axon Active Viet Nam",
+    role: "Product Owner",
+    period: "October 2024 - Now",
+  },
+  {
+    company: "BIC Bank Cambodia",
+    role: "Senior Business Analyst / Product Owner",
+    period: "October 2023 - October 2024",
+  },
+  {
+    company: "Xebia Group - ABBank Project",
+    role: "Senior Business Analyst",
+    period: "November 2022 - October 2023",
+  },
+  {
+    company: "FPT Software",
+    role: "Project Manager - Scrum Master",
+    period: "April 2022 - November 2022",
+  },
+  {
+    company: "Amaris Consulting - Mantu Group",
+    role: "Senior Business Analyst - Scrum Master",
+    period: "January 2021 - April 2022",
+  },
+  {
+    company: "JACCS Financial Group",
+    role: "Senior Business Analyst",
+    period: "August 2020 - January 2021",
+  },
+  {
+    company: "Innotech",
+    role: "Senior Business Analyst",
+    period: "May 2020 - August 2020",
+  },
+  {
+    company: "Home Credit",
+    role: "Project Coordinator / Business Analyst",
+    period: "June 2018 - May 2020",
+  },
+  {
+    company: "Maersk Line",
+    role: "Technical Support",
+    period: "April 2017 - June 2018",
+  },
+  {
+    company: "Freelancer",
+    role: "Freelancer",
+    period: "2014 - 2016",
+  },
+] as const;
+
 export const caseStudies = [
   {
     title: "Digital Banking Experience Transformation",

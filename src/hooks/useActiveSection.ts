@@ -1,147 +1,299 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-type ScrollDirection = "up" | "down";
-type SectionProgressMap = Record<string, number>;
+export type ActiveSectionMetrics = {
+  id: string;
+  progress: number;
+  visibilityRatio: number;
+  viewportPosition: number;
+  isActive: boolean;
+};
 
-export function useActiveSection(sectionIds: readonly string[]) {
-  const [activeId, setActiveId] = useState(sectionIds[0] ?? "");
-  const [direction, setDirection] = useState<ScrollDirection>("down");
-  const [progress, setProgress] = useState(0);
-  const [sectionProgress, setSectionProgress] =
-    useState<SectionProgressMap>({});
+export type ActiveSectionDetails = {
+  activeId: string;
+  activeIndex: number;
+  activeSectionProgress: number;
+  sectionProgress: Record<string, number>;
+  visibilityRatio: Record<string, number>;
+  viewportPosition: Record<string, number>;
+  sections: Record<string, ActiveSectionMetrics>;
+};
 
-  const lastScrollY = useRef(0);
-  const ticking = useRef(false);
-  const isManualScroll = useRef(false);
+type UseActiveSectionOptions = {
+  detailed?: boolean;
+};
 
-  // 🔥 cache DOM elements (IMPORTANT)
-  const elementsRef = useRef<HTMLElement[]>([]);
+export function useActiveSection(sectionIds: readonly string[]): string;
+export function useActiveSection(
+  sectionIds: readonly string[],
+  options: { detailed: true },
+): ActiveSectionDetails;
+export function useActiveSection(
+  sectionIds: readonly string[],
+  options?: UseActiveSectionOptions,
+) {
+  const detailed = options?.detailed === true;
+  const sectionKey = useMemo(() => sectionIds.join("|"), [sectionIds]);
+  const stableSectionIds = useMemo(
+    () => (sectionKey ? sectionKey.split("|") : []),
+    [sectionKey],
+  );
+
+  const [activeId, setActiveId] = useState(stableSectionIds[0] ?? "");
+  const [details, setDetails] = useState<ActiveSectionDetails>(() =>
+    createEmptyDetails(stableSectionIds, stableSectionIds[0] ?? ""),
+  );
 
   useEffect(() => {
-    if (!sectionIds.length) return;
+    if (stableSectionIds.length === 0) {
+      setActiveId("");
+      setDetails(createEmptyDetails([], ""));
+      return;
+    }
 
-    elementsRef.current = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+    const elementCache = new Map<string, HTMLElement>();
+    let rafId: number | null = null;
 
-    // =========================
-    // 🔥 HASH SYNC (CLICK MENU FIX)
-    // =========================
-    const onHashChange = () => {
+    const getElements = () =>
+      stableSectionIds
+        .map((id) => {
+          const cached = elementCache.get(id);
+
+          if (cached && cached.isConnected) {
+            return cached;
+          }
+
+          const element = document.getElementById(id);
+          if (element) {
+            elementCache.set(id, element);
+          }
+
+          return element;
+        })
+        .filter((element): element is HTMLElement => Boolean(element));
+
+    const measure = () => {
+      rafId = null;
+
+      const elements = getElements();
+      if (elements.length === 0) {
+        return;
+      }
+
+      const next = calculateDetails(stableSectionIds, elements);
+
+      setActiveId((current) => (current === next.activeId ? current : next.activeId));
+
+      if (detailed) {
+        setDetails((current) => (hasDetailsChanged(current, next) ? next : current));
+      }
+    };
+
+    const scheduleMeasure = () => {
+      if (rafId !== null) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(measure);
+    };
+
+    const syncFromHash = () => {
       const hashId = window.location.hash.replace("#", "");
-      if (hashId && sectionIds.includes(hashId)) {
-        isManualScroll.current = true;
+
+      if (hashId && stableSectionIds.includes(hashId)) {
         setActiveId(hashId);
 
-        setTimeout(() => {
-          isManualScroll.current = false;
-        }, 400);
-      }
-    };
-
-    window.addEventListener("hashchange", onHashChange);
-
-    // =========================
-    // 🔥 SCROLL ENGINE
-    // =========================
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-
-      // direction
-      setDirection(currentY > lastScrollY.current ? "down" : "up");
-      lastScrollY.current = currentY;
-
-      // global progress
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-      const p = docHeight > 0 ? currentY / docHeight : 0;
-      setProgress(Math.min(Math.max(p, 0), 1));
-
-      let bestSection = sectionIds[0];
-      let maxRatio = 0;
-
-      const progressMap: SectionProgressMap = {};
-
-      elementsRef.current.forEach((el) => {
-        const id = el.id;
-        const rect = el.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-
-        // 🔥 visible area
-        const visibleTop = Math.max(rect.top, 0);
-        const visibleBottom = Math.min(rect.bottom, viewportHeight);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-
-        // 🔥 FIX: ratio theo chính section
-        const ratio = visibleHeight / rect.height;
-
-        // 🔥 SECTION PROGRESS (SMOOTH)
-        const total = rect.height + viewportHeight;
-        const current = viewportHeight - rect.top;
-        let sectionP = current / total;
-
-        // clamp
-        sectionP = Math.min(Math.max(sectionP, 0), 1);
-
-        // 🔥 OPTIONAL: easing nhẹ (mượt animation)
-        sectionP = sectionP * sectionP * (3 - 2 * sectionP); // smoothstep
-
-        progressMap[id] = sectionP;
-
-        // 🔥 PICK ACTIVE SECTION
-        if (ratio > maxRatio) {
-          maxRatio = ratio;
-          bestSection = id;
+        if (detailed) {
+          setDetails((current) =>
+            current.activeId === hashId
+              ? current
+              : {
+                  ...current,
+                  activeId: hashId,
+                  activeIndex: stableSectionIds.indexOf(hashId),
+                },
+          );
         }
-      });
-
-      setSectionProgress(progressMap);
-
-      // tránh conflict khi click menu
-      if (!isManualScroll.current) {
-        setActiveId(bestSection);
       }
+
+      scheduleMeasure();
     };
 
-    const onScroll = () => {
-      if (!ticking.current) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking.current = false;
-        });
-        ticking.current = true;
-      }
-    };
+    syncFromHash();
+    scheduleMeasure();
 
-    // =========================
-    // 🔥 RESIZE FIX (IMPORTANT)
-    // =========================
-    const onResize = () => {
-      elementsRef.current = sectionIds
-        .map((id) => document.getElementById(id))
-        .filter((el): el is HTMLElement => Boolean(el));
-
-      handleScroll();
-    };
-
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", onResize);
-
-    // init
-    handleScroll();
+    window.addEventListener("scroll", scheduleMeasure, { passive: true });
+    window.addEventListener("resize", scheduleMeasure);
+    window.addEventListener("hashchange", syncFromHash);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("hashchange", onHashChange);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+
+      window.removeEventListener("scroll", scheduleMeasure);
+      window.removeEventListener("resize", scheduleMeasure);
+      window.removeEventListener("hashchange", syncFromHash);
     };
-  }, [sectionIds.join(",")]);
+  }, [detailed, stableSectionIds]);
+
+  if (detailed) {
+    return details;
+  }
+
+  return activeId;
+}
+
+function calculateDetails(
+  sectionIds: string[],
+  elements: HTMLElement[],
+): ActiveSectionDetails {
+  const viewportHeight = window.innerHeight || 1;
+  let bestId = sectionIds[0] ?? "";
+  let bestScore = Number.NEGATIVE_INFINITY;
+
+  const sections = sectionIds.reduce<Record<string, ActiveSectionMetrics>>((accumulator, id) => {
+    const element = elements.find((entry) => entry.id === id);
+
+    if (!element) {
+      accumulator[id] = {
+        id,
+        progress: 0,
+        visibilityRatio: 0,
+        viewportPosition: 1,
+        isActive: false,
+      };
+
+      return accumulator;
+    }
+
+    const rect = element.getBoundingClientRect();
+    const visiblePixels =
+      Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+
+    const visibilityRatio = clamp(
+      visiblePixels > 0 ? visiblePixels / Math.min(rect.height || 1, viewportHeight) : 0,
+      0,
+      1,
+    );
+
+    const progress = clamp(
+      (viewportHeight - rect.top) / (viewportHeight + (rect.height || 1)),
+      0,
+      1,
+    );
+
+    const viewportPosition = clamp(
+      ((rect.top + rect.height / 2) - viewportHeight / 2) / (viewportHeight / 2),
+      -2,
+      2,
+    );
+
+    const score = visibilityRatio * 10 - Math.abs(viewportPosition);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestId = id;
+    }
+
+    accumulator[id] = {
+      id,
+      progress,
+      visibilityRatio,
+      viewportPosition,
+      isActive: false,
+    };
+
+    return accumulator;
+  }, {});
+
+  const activeIndex = Math.max(0, sectionIds.indexOf(bestId));
+  const activeMetrics = sections[bestId] ?? {
+    id: bestId,
+    progress: 0,
+    visibilityRatio: 0,
+    viewportPosition: 1,
+    isActive: true,
+  };
+
+  sections[bestId] = {
+    ...activeMetrics,
+    isActive: true,
+  };
+
+  const sectionProgress = Object.fromEntries(
+    Object.entries(sections).map(([id, metrics]) => [id, metrics.progress]),
+  );
+  const visibilityRatio = Object.fromEntries(
+    Object.entries(sections).map(([id, metrics]) => [id, metrics.visibilityRatio]),
+  );
+  const viewportPosition = Object.fromEntries(
+    Object.entries(sections).map(([id, metrics]) => [id, metrics.viewportPosition]),
+  );
+
+  return {
+    activeId: bestId,
+    activeIndex,
+    activeSectionProgress: activeMetrics.progress,
+    sectionProgress,
+    visibilityRatio,
+    viewportPosition,
+    sections,
+  };
+}
+
+function createEmptyDetails(sectionIds: string[], activeId: string): ActiveSectionDetails {
+  const sections = sectionIds.reduce<Record<string, ActiveSectionMetrics>>((accumulator, id) => {
+    accumulator[id] = {
+      id,
+      progress: 0,
+      visibilityRatio: 0,
+      viewportPosition: 1,
+      isActive: id === activeId,
+    };
+
+    return accumulator;
+  }, {});
 
   return {
     activeId,
-    direction,
-    progress,
-    sectionProgress,
+    activeIndex: Math.max(0, sectionIds.indexOf(activeId)),
+    activeSectionProgress: 0,
+    sectionProgress: Object.fromEntries(sectionIds.map((id) => [id, 0])),
+    visibilityRatio: Object.fromEntries(sectionIds.map((id) => [id, 0])),
+    viewportPosition: Object.fromEntries(sectionIds.map((id) => [id, 1])),
+    sections,
   };
+}
+
+function hasDetailsChanged(
+  previous: ActiveSectionDetails,
+  next: ActiveSectionDetails,
+) {
+  if (previous.activeId !== next.activeId || previous.activeIndex !== next.activeIndex) {
+    return true;
+  }
+
+  if (Math.abs(previous.activeSectionProgress - next.activeSectionProgress) > 0.002) {
+    return true;
+  }
+
+  for (const id of Object.keys(next.sectionProgress)) {
+    if (Math.abs((previous.sectionProgress[id] ?? 0) - next.sectionProgress[id]) > 0.002) {
+      return true;
+    }
+
+    if (Math.abs((previous.visibilityRatio[id] ?? 0) - next.visibilityRatio[id]) > 0.002) {
+      return true;
+    }
+
+    if (Math.abs((previous.viewportPosition[id] ?? 0) - next.viewportPosition[id]) > 0.01) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
 }

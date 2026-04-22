@@ -18,8 +18,9 @@ import { StrengthsSection } from "./sections/StrengthsSection";
 
 export default function App() {
   const { activeId, sectionProgress } = useActiveSection(
-  sections.map((section) => section.id),
-);
+    sections.map((section) => section.id),
+    { detailed: true },
+  );
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-obsidian text-ivory">
@@ -28,9 +29,9 @@ export default function App() {
       <div className="relative z-10">
         <Navbar activeId={activeId} />
         <JourneyPanel
-  activeId={activeId}
-  sectionProgress={sectionProgress}
-/>
+          activeId={activeId}
+          sectionProgress={sectionProgress}
+        />
         <main>
           <HeroSection />
           <AboutSection />
