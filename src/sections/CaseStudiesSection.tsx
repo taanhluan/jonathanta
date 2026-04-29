@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer, viewportOnce } from "../utils/motion";
 
 export function CaseStudiesSection() {
   return (
-    <SectionShell id="case-studies">
+    <SectionShell id="case-studies" className="relative z-20 bg-obsidian">
       <SectionIntro
         eyebrow="Selected Case Studies"
         title="Executive-style narratives that show how analysis and product discipline create delivery momentum."

@@ -141,6 +141,118 @@ export const experiences = [
       "Bridged business requirements, process analysis, and product support in a regulated banking context.",
     ],
   },
+  {
+    company: "FPT Software",
+    role: "Project Manager - Scrum Master",
+    period: "April 2022 - November 2022",
+    location: "US, UK, India | B2C E-Commerce, Manufacturing",
+    summary:
+      "Managed Agile and hybrid delivery across B2C e-commerce and manufacturing projects, coordinating scopes, schedules, budgets, teams, and customer communication across US, UK, and India working environments.",
+    responsibilities: [
+      "Communicated project scope, schedules, and budgets with customers and contractors.",
+      "Prepared Jira and Excel financial reports including billing, overhead, and rate calculations.",
+      "Defined schedules, allocated resources, monitored progress, and supported a 40+ member team.",
+      "Resolved cross-functional issues across BA, QA, and development teams to keep deliverables on time.",
+    ],
+  },
+  {
+    company: "Xebia Group - ABBank Project",
+    role: "Senior Business Analyst",
+    period: "November 2022 - October 2023",
+    location: "Vietnam | ABBank Digital Corporate Banking",
+    summary:
+      "Led analysis for ABBank digital corporate banking using Backbase and T24 platforms, supporting digital transformation, platform integration, organizational agility, and customer experience improvement.",
+    responsibilities: [
+      "Analyzed industry dynamics, business models, and emerging technologies for digital transformation planning.",
+      "Oversaw Backbase and T24 integration to support functionality and data flow.",
+      "Conducted workshops for value-stream improvement, technology adoption, and leadership effectiveness.",
+      "Delivered key functionality including lending solutions, eKYC, and transaction banking services.",
+    ],
+  },
+  {
+    company: "Amaris Consulting - Mantu Group",
+    role: "Senior Business Analyst - Scrum Master",
+    period: "January 2021 - April 2022",
+    location: "US, UK, Hong Kong, Singapore, India, France, Australia",
+    summary:
+      "Supported insurance digital transformation as a Senior Business Analyst and Scrum Master, combining requirement analysis, functional documentation, testing, UAT, team coordination, and data migration support.",
+    responsibilities: [
+      "Collected business requirements and produced functional specifications for development teams.",
+      "Supported testing, UAT, analysis, development, implementation, and project monitoring.",
+      "Coordinated multidisciplinary teams while defining methods, standards, and delivery procedures.",
+      "Managed communication across project levels and supported data migration continuity.",
+    ],
+  },
+  {
+    company: "JACCS Financial Group",
+    role: "Senior Business Analyst",
+    period: "August 2020 - January 2021",
+    location: "Japan, US | Financial Digital Transformation",
+    summary:
+      "Supported financial digital transformation for JACCS International Vietnam Finance, working across change requests, requirement assessment, vendor clarification, solution implementation, testing, and data migration.",
+    responsibilities: [
+      "Analyzed project assignments, change requests, and business division requirements.",
+      "Clarified requirement specifications with vendors and relevant divisions.",
+      "Built test scenarios, project plans, and solution assessments for card-business change requests.",
+      "Coordinated with business divisions to keep implementation timelines on track.",
+    ],
+  },
+  {
+    company: "Innotech",
+    role: "Senior Business Analyst",
+    period: "May 2020 - August 2020",
+    location: "Vietnam | Financial Digital Transformation",
+    summary:
+      "Supported a short-term startup digital transformation project by defining business needs, managing stakeholder alignment, shaping feasible solution scope, and maintaining product backlog clarity.",
+    responsibilities: [
+      "Gathered, organized, and synthesized stakeholder requirements from multiple sources.",
+      "Defined business needs, problems, risks, and feasible solution scope.",
+      "Converted business needs into functional designs and business requirement documents.",
+      "Ensured the team understood product requirements, backlog priorities, and quality expectations.",
+    ],
+  },
+  {
+    company: "Home Credit",
+    role: "Project Coordinator / Business Analyst",
+    period: "June 2018 - May 2020",
+    location: "EU | Financial Digital Transformation",
+    summary:
+      "Coordinated and analyzed financial digital transformation work around EPIC application configuration, software requirements, workflow analysis, configuration testing, implementation, and technology transfer.",
+    responsibilities: [
+      "Translated business requirements into EPIC application configuration and software specifications.",
+      "Executed configuration test plans and resolved configuration issues.",
+      "Analyzed workflows, data collections, reports, and technical issues tied to application use.",
+      "Supported release evaluation, system updates, data migration, and technology transfer in Prague.",
+    ],
+  },
+  {
+    company: "Maersk Line",
+    role: "Technical Support",
+    period: "April 2017 - June 2018",
+    location: "Technology Product Portfolios",
+    summary:
+      "Supported Maersk technology risk operations by helping integrate IT operational risk management across product portfolios, risk registers, reporting, quality checks, and stakeholder coordination.",
+    responsibilities: [
+      "Triaged incoming risk requests and translated them into Maersk's central risk register.",
+      "Supported risk capture, assessment, remediation tracking, and escalation activities.",
+      "Prepared reports, meeting content, action tracking, and quality checks for risk assessments.",
+      "Built relationships with product and platform stakeholders while improving risk-management awareness.",
+    ],
+  },
+  {
+    company: "Freelancer",
+    role: "Freelancer",
+    period: "2014 - 2016",
+    location: "Vietnam",
+    summary:
+      "Built an early independent working foundation while studying Network Engineering and Information Technology, developing self-management, client communication, and practical delivery habits.",
+    responsibilities: [
+      "Managed independent work directly with clients from request clarification to delivery.",
+      "Built early habits around communication, ownership, and expectation management.",
+      "Learned to translate loosely defined needs into practical work outputs.",
+      "Established the first layer of delivery confidence used in later corporate roles.",
+    ],
+  },
 ];
 
 export const experienceSceneEntries = [
