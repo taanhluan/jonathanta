@@ -12,27 +12,7 @@
 @media(max-width:560px){.chapter{padding-left:6vw;padding-right:6vw}.header-contact{font-size:0}.intro-actions{flex-direction:column}.button{justify-content:center}.portrait-wrap img{height:58vh}.profile-section,.work-section,.expertise-section{padding-top:7rem}.profile-layout{padding:3rem 0 5rem}.case{display:block}.expertise-grid{grid-template-columns:1fr}.proof-row{grid-template-columns:1fr 1fr}.credentials>div{grid-template-columns:1fr}.contact-meta{margin-top:5rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.strength-marquee div{animation:none}.story-step,.visual-rule span{transition:none}}
 
-/* Visual QA fixes: preserve portrait framing and soften the editorial palette. */
-.portrait-wrap{background:#e8e7e1;overflow:visible}
-.portrait-wrap img{height:min(70vh,720px);object-fit:contain;object-position:center top;background:#e8e7e1;filter:grayscale(35%)}
-.portrait-index{background:#c9d8d0;color:#17221d;right:-.75rem}
-
-.strength-marquee{background:#c9d8d0}
-.experience-section{background:#19231f}
-.sticky-visual>strong,.step-period,.visual-company{color:#b8d1c4}
-.visual-rule span,.story-step li:before{background:#b8d1c4}
-
-.expertise-section{background:#263a33;color:#f4f1e9}
-.expertise-head{padding:4.5rem 0 4rem}
-.expertise-head h2{margin:0;max-width:1180px;line-height:.98}
-.expertise-head h2 em{color:#b8d1c4}
-.expertise-grid{border-color:#ffffff3d}
-.expertise-grid article{min-height:270px;border-color:#ffffff3d;padding:1.75rem}
-.expertise-grid svg{color:#b8d1c4}
-.expertise-grid h3{font-size:clamp(1.45rem,2vw,2rem)}
-.expertise-grid p{font-size:.8rem;max-width:340px}
-.proof-row strong{color:#b8d1c4}
-.contact-section{background:#dce6e0}
-
-@media(max-width:900px){.portrait-wrap img{height:auto;max-height:720px}.expertise-head{padding:3.5rem 0 3rem}.expertise-grid article{min-height:240px}}
-@media(max-width:560px){.portrait-wrap{overflow:hidden}.portrait-index{right:.75rem}.expertise-head h2{font-size:clamp(2.8rem,13vw,4.5rem);line-height:1}.expertise-grid article{min-height:230px}}
+/* Keep the original monochrome treatment while preserving the full face. */
+.portrait-wrap{background:#f0efe9}
+.portrait-wrap img{object-fit:contain;object-position:center top;background:#f0efe9;filter:grayscale(100%)}
+@media(max-width:900px){.portrait-wrap img{height:auto;max-height:720px}}
