@@ -15,3 +15,5 @@
 .portrait-wrap{background:#f0efe9}
 .portrait-wrap img{object-fit:contain;object-position:center top;background:#f0efe9;filter:grayscale(100%)}
 @media(max-width:900px){.portrait-wrap img{height:auto;max-height:720px}}
+
+.site-header nav a.nav-mentoring{opacity:1;color:#234b6c;font-weight:600;text-transform:none;border-bottom:1px solid #234b6c;padding-bottom:3px}

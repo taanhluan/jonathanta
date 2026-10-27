@@ -20,8 +20,8 @@ function useScrollChapter() {
 
 function Header({active}:{active:string}) { return <header className="site-header">
   <a className="wordmark" href="#intro">TAL<span>.</span></a>
-  <nav>{chapters.slice(1).map(id=><a key={id} href={`#${id}`} className={active===id?"active":""}>{id==="work"?"Selected work":id}</a>)}<a href="#/dao-tao-ba">Đào tạo BA</a></nav>
-  <a className="header-training-link" href="#/dao-tao-ba">Khóa học BA</a>
+  <nav>{chapters.slice(1).map(id=><a key={id} href={`#${id}`} className={active===id?"active":""}>{id==="work"?"Selected work":id}</a>)}<a className="nav-mentoring" href="#/dao-tao-ba">BA Mentoring</a></nav>
+  <a className="header-training-link" href="#/dao-tao-ba">BA Mentoring</a>
   <a className="header-contact" href={`mailto:${contactData.email}`}>Let’s talk <ArrowUpRight size={15}/></a>
 </header> }
 
