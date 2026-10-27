@@ -31,7 +31,7 @@ export const sections = [
 
 export const heroData = {
   name: "Ta Anh Luan",
-  nativeName: "Tạ Anh Luân",
+  nativeName: "Tạ Anh Luận",
   title: "Principal Business Analyst | Product Owner",
   openingLabel: "Principal BA Leadership | Banking & Digital Transformation",
   statement:
@@ -405,5 +405,5 @@ export const achievementCards = [
 export const contactData = {
   email: "taanhluan@gmail.com",
   linkedin: "https://www.linkedin.com/in/taanhluan/",
-  portfolio: "https://taanhluan.github.io/JonathanTa",
+  portfolio: "https://taanhluan.github.io/jonathanta/",
 };

@@ -54,3 +54,10 @@ Update this file to change:
 
 - `public/Ta-Anh-Luan-CV.pdf` is the resume file used by the Download CV button.
 - `public/ta-anh-luan-avatar.jpg` is the portrait image used in the hero section.
+
+## BA BFSI training landing page
+
+Public entry: `https://taanhluan.github.io/jonathanta/#/dao-tao-ba`.
+The hash route works on GitHub Pages without server rewrite rules. The homepage includes navigation and a course promotion section. Training content and registration are in `src/TrainingPage.tsx`, with responsive styles in `src/training.css`.
+
+Registration validates required fields and opens a prefilled email to the portfolio contact address. Visitors must send it from their email application. The page does not store submissions or report successful delivery; it also shows the generated text as a manual fallback. No backend or third-party collection endpoint is configured.
