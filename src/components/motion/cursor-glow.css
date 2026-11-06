@@ -1,0 +1,11 @@
+.cursor-glow{position:fixed;left:0;top:0;width:0;height:0;z-index:90;pointer-events:none!important;opacity:0;transition:opacity .18s;will-change:transform;isolation:isolate}
+.cursor-glow[data-visible=true]{opacity:1}
+.cursor-glow-aura,.cursor-glow-core{position:absolute;left:0;top:0;pointer-events:none;transform:translate(-50%,-50%);border-radius:50%;transition:width .2s,height .2s,opacity .2s,box-shadow .2s}
+.cursor-glow-aura{width:150px;height:150px;background:radial-gradient(circle,#85eaff24 0%,#66cfe814 22%,#a785ef09 45%,transparent 70%)}
+.cursor-glow-core{width:20px;height:20px;border:1px solid #b5f5ff7a;background:radial-gradient(circle,#e2fcff40,transparent 68%);box-shadow:0 0 12px #7bdde972,0 0 26px #9c78e935}
+.cursor-glow[data-interactive=true] .cursor-glow-aura{width:190px;height:190px;opacity:1}
+.cursor-glow[data-interactive=true] .cursor-glow-core{width:36px;height:36px;border-color:#c3f8ffc9;box-shadow:0 0 16px #7bdde98c,0 0 36px #b69aef59}
+.cursor-glow[data-pressed=true] .cursor-glow-core{width:13px;height:13px;box-shadow:0 0 18px #a6efffbb,0 0 40px #b69aef66}
+@media(hover:none),(pointer:coarse){.cursor-glow{display:none}}
+@media(prefers-reduced-motion:reduce){.cursor-glow,.cursor-glow-aura,.cursor-glow-core{transition:none}}
+@media(forced-colors:active){.cursor-glow{display:none}}

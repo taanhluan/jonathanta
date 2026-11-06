@@ -1,0 +1,17 @@
+/* The website itself is the canvas: no separate animation board. */
+.site-build .intro-copy,.site-build .mentoring-frame,.site-build .contact-copy,.site-build .work-intro,.site-build .expertise-head{opacity:1!important;transform:none!important}
+.site-build .word-mask>span{opacity:1!important;transform:none!important}.site-build .word-mask{overflow:visible}
+.site-build .case,.site-build .expertise-grid article,.site-build .intro-facts>div{animation:none!important}
+.site-build-scrub{opacity:var(--build-opacity,1)!important;transition:none!important;animation:none!important}
+.site-build .buddy-scene{transform:none!important}.site-build .buddy,.site-build .collab-cursor{animation:none!important}
+.site-build .collab-cursor{visibility:hidden}.site-build .story-step{transform:none!important}
+.site-build-overlay{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden;contain:strict}
+.site-build-wire{position:absolute;border:1px solid #346aff;background:#346aff06;pointer-events:none}
+.site-build-wire i{position:absolute;width:5px;height:5px;background:#faf8f5;border:1px solid #346aff}
+.site-build-wire i:nth-child(1){top:-3px;left:-3px}.site-build-wire i:nth-child(2){top:-3px;right:-3px}.site-build-wire i:nth-child(3){bottom:-3px;left:-3px}.site-build-wire i:nth-child(4){bottom:-3px;right:-3px}
+.site-build-wire b{position:absolute;left:50%;top:-19px;transform:translateX(-50%);padding:3px 6px;background:#346aff;color:white;font:9px/1 monospace;border-radius:3px;white-space:nowrap}
+.site-build-cursor{position:absolute;left:0;top:0;opacity:0;transform-origin:2px 2px;filter:drop-shadow(0 2px 3px #0002);will-change:transform}
+.site-build-cursor>span{position:absolute;left:22px;top:24px;background:var(--cursor-color);color:white;padding:5px 9px;border-radius:2px 9px 9px 9px;font:600 10px/1 Arial,sans-serif;white-space:nowrap}
+.site-build-cursor>i{position:absolute;left:-13px;top:-13px;width:30px;height:30px;border:2px solid var(--cursor-color);border-radius:50%;opacity:var(--click,0);scale:calc(1.5 - var(--click,0) * .5)}
+@media(max-width:600px){.site-build-cursor svg{width:20px;height:24px}.site-build-cursor>span{font-size:9px;padding:4px 7px;left:16px;top:19px}.site-build-wire b{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.site-build-overlay{display:none}.site-build-scrub{opacity:1!important;scale:1!important;transition:none!important}}

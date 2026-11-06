@@ -1,0 +1,59 @@
+.theme-toggle{position:fixed;right:22px;bottom:22px;z-index:150;display:flex;align-items:center;gap:9px;border:1px solid #7d9dbb55;border-radius:40px;padding:12px 16px;background:#102031;color:#eef3fa;box-shadow:0 4px 22px #0003;font:600 12px Arial;cursor:pointer}.theme-toggle:focus-visible{outline:3px solid #64c5d3;outline-offset:4px}.theme-toggle:hover{border-color:#7bdde9}
+.cole-instructor-proof{display:flex;align-items:center;gap:24px;padding:28px;margin-top:24px;border:1px solid var(--training-line);border-radius:16px;background:var(--training-surface)}.cole-instructor-proof>img{width:100px;height:100px;object-fit:contain;border-radius:50%;background:white}.cole-instructor-proof strong{font-size:23px}.cole-instructor-proof .training-eyebrow{margin-bottom:8px}.cole-instructor-proof p{margin:6px 0 10px;font-size:13px}.cole-instructor-proof:hover{border-color:var(--training-cyan)}
+/* The original ABBANK PNG has an opaque white background: monochrome brightness
+   filters flatten it into a rectangle. Keep the official artwork in full color. */
+.training-company-logo.company-abbank img{filter:none;opacity:1;mix-blend-mode:normal;background:white;padding:7px;border-radius:6px;max-width:136px;height:52px}
+html[data-theme="light"]{color-scheme:light;background:#f5f8fb}html[data-theme="light"] body{background:#f5f8fb}
+html[data-theme="light"] .theme-toggle{background:#fff;color:#163047;border-color:#b3c6d7}
+html[data-theme="light"] .portfolio-theme{--page-bg:#f5f8fb;--surface:#eaf0f6;--surface-hover:#e0eaf3;--ink:#142b40;--muted:#435e74;--subtle:#596f83;--line:#1d486328;--accent:#087b8b;--violet:#7750a1;color-scheme:light}
+html[data-theme="light"] .portfolio-theme .site-header{background:#f5f8fbf5}html[data-theme="light"] .portfolio-theme .case-main strong{color:var(--ink)}html[data-theme="light"] .portfolio-theme .case-tags span{background:var(--surface)}
+html[data-theme="light"] .portfolio-theme .header-contact{background:#123c50;color:#fff}
+/* Keep the ferrofluid scene itself dark, like a photographic artwork. */
+html[data-theme="light"] .portfolio-theme .cinematic-hero{color:#eef3fa;background:#040910}
+html[data-theme="light"] .training-page{--training-bg:#f5f8fb;--training-surface:#eaf0f6;--training-line:#1d486328;--training-ink:#142b40;--training-muted:#435e74;--training-cyan:#087b8b;--training-violet:#7750a1;color-scheme:light}
+html[data-theme="light"] .training-page .training-nav{background:#f5f8fbf5}
+html[data-theme="light"] .training-page :is(.training-track-panel,.training-mentor-id,.training-form,.training-quote-card,.training-feedback-mini,.training-feedback-archive,.training-feedback-timeline,.training-domain-panel,.training-method-detail){background:var(--training-surface);color:var(--training-ink)}
+html[data-theme="light"] .training-page :is(input,select,textarea){background:#fff;color:var(--training-ink);border-color:#a7bbce}
+html[data-theme="light"] .training-page :is(.training-form label,.training-track-content li,.training-footer a){color:var(--training-ink)}
+html[data-theme="light"] .training-page :is(.training-note,.training-subtle,.training-footer,.training-form-heading>span:last-child){color:#596f83}
+html[data-theme="light"] .training-page .training-btn.primary{background:#123e52;color:#fff}
+html[data-theme="light"] .training-company-logo img{filter:grayscale(1) brightness(.45);opacity:.85}
+html[data-theme="light"] .training-company-logo.company-bic img{filter:grayscale(1);mix-blend-mode:multiply}
+html[data-theme="light"] .training-company-logo.company-abbank img{filter:none;opacity:1}
+@media(max-width:600px){.theme-toggle{right:14px;bottom:14px;padding:12px}.theme-toggle>span{display:none}.cole-instructor-proof{align-items:flex-start;gap:16px;padding:20px}.cole-instructor-proof>img{width:70px;height:70px}.cole-instructor-proof strong{font-size:20px}}
+html[data-theme="light"] .training-page :is(.training-feedback,.training-evidence-card,.training-evidence-image,.training-feedback-archive figure){background:var(--training-surface)}
+html[data-theme="light"] .training-page .training-feedback-mini>.training-eyebrow{color:var(--training-violet)}
+html[data-theme="light"] .training-page :is(.training-portrait figcaption,.training-float-card){background:#eaf0f6;color:var(--training-ink)}
+html[data-theme="light"] .training-page .training-portrait figcaption strong{color:var(--training-ink)}
+/* Shared light palette: backgrounds, emphasis, selected states and overlays. */
+html[data-theme="light"] .training-page{
+ --training-elevated:#ffffff;
+ --training-input:#ffffff;
+ --training-selected:#dceef2;
+ --training-section:#edf3f8;
+ --training-shadow:0 14px 36px #153b5512;
+}
+html[data-theme="light"] .training-page .training-float{background:var(--training-elevated);border-color:var(--training-line);box-shadow:var(--training-shadow)}
+html[data-theme="light"] .training-page .training-lede strong{color:var(--training-ink);font-weight:600}
+html[data-theme="light"] .training-page .training-hero h1 em{background:linear-gradient(100deg,var(--training-cyan),var(--training-violet));background-clip:text;-webkit-background-clip:text;color:transparent}
+html[data-theme="light"] .training-page :is(.training-portrait,.training-mentor-id){border-color:var(--training-line);box-shadow:var(--training-shadow)}
+html[data-theme="light"] .training-page .training-track-picker button[aria-pressed="true"]{background:var(--training-selected)}
+html[data-theme="light"] .training-page .training-domain-picker button[aria-pressed="true"]{background:var(--training-cyan);color:white;border-color:var(--training-cyan)}
+html[data-theme="light"] .training-page .training-btn.primary:hover{background:#20566b;color:white;box-shadow:none}
+html[data-theme="light"] .training-page :is(.training-case-panel,.training-method-steps){background:var(--training-surface)}
+html[data-theme="light"] .training-page :is(.training-tags>span,.training-context>p,.training-logo-fallback){color:var(--training-muted)}
+html[data-theme="light"] .training-page .training-track-copy .training-track-focus{color:var(--training-violet)}
+html[data-theme="light"] .training-page .training-step-number{color:#087b8b10}
+html[data-theme="light"] .training-page input::placeholder,html[data-theme="light"] .training-page textarea::placeholder{color:#61788b}
+html[data-theme="light"] .portfolio-theme .career-fluid{mask-image:none;border-radius:28px;background:#071019;inset:88px 0 46px}
+html[data-theme="light"] .portfolio-theme .career-fluid .ferrofluid-scene{background:#071019}
+html[data-theme="light"] .portfolio-theme .career-bottom nav button>span{background:#b6c8d7}
+html[data-theme="light"] .portfolio-theme .career-bottom nav button.active>span{background:var(--accent);box-shadow:none}
+html[data-theme="light"] .cursor-glow-core{border-color:#087b8b88;background:transparent;box-shadow:0 0 8px #087b8b22}
+html[data-theme="light"] .cursor-glow-aura{opacity:.25}
+/* Preserve source detail: no desaturation, no oversized head crop. Width at
+   2x density stays within the 680-pixel source; include more of the portrait. */
+.training-page .training-portrait{width:min(77%,340px);border-radius:120px 120px 24px 24px}
+.training-page .training-portrait img{height:400px;width:100%;object-fit:cover;object-position:center top;filter:none;image-rendering:auto}
+.training-page .training-mentor-id img{filter:none}
+@media(max-width:650px){.training-page .training-portrait{width:min(84%,300px)}.training-page .training-portrait img{height:350px}}

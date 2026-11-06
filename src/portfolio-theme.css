@@ -1,0 +1,73 @@
+/* One palette across the portfolio, including the scene's surrounding UI. */
+.portfolio-theme{
+  --page-bg:#040910;
+  --surface:#0a1420;
+  --surface-hover:#101e2d;
+  --ink:#eef3fa;
+  --muted:#aebccb;
+  --subtle:#8598ab;
+  --line:#a5c7e326;
+  --accent:#7bdde9;
+  --violet:#b9a1ef;
+  background:var(--page-bg);
+  color:var(--ink);
+  color-scheme:dark;
+}
+body:has(.portfolio-theme){background:#040910}
+.portfolio-theme ::selection{background:#52466e;color:#fff}
+.portfolio-theme main{background:var(--page-bg)}
+.portfolio-theme :is(.profile-section,.experience-section,.work-section,.expertise-section,.contact-section,.mentoring-frame){background:var(--page-bg);color:var(--ink)}
+.portfolio-theme .cinematic-hero{padding-inline:0;background:var(--page-bg)}
+/* Fade the live scene into the same base used by all reading sections. */
+.portfolio-theme .cinematic-shade{background:linear-gradient(180deg,#04091044,transparent 25%,transparent 65%,#040910 100%)}
+.portfolio-theme .mentoring-frame{padding-top:48px}
+.portfolio-theme .site-header{background:#040910f5;border-color:var(--line);color:var(--ink)}
+.portfolio-theme .site-header nav a{color:var(--muted);opacity:1}
+.portfolio-theme .site-header nav a:is(:hover,.active){color:var(--ink)}
+.portfolio-theme .site-header nav a.nav-mentoring{color:var(--accent)}
+.portfolio-theme .wordmark span{color:var(--accent)}
+.portfolio-theme .header-training-link{color:var(--accent)}
+.portfolio-theme .header-contact{background:#eaf3f8;color:#071019}
+.portfolio-theme .reading-progress{background:linear-gradient(90deg,var(--violet),var(--accent))}
+.portfolio-theme :is(.section-number,.light-number){border-color:var(--line);color:var(--subtle)}
+.portfolio-theme .section-number:before{background:var(--accent)}
+.portfolio-theme :is(.profile-layout h2,.work-intro h2,.expertise-head h2,.contact-copy h2,.case-main h3,.expertise-grid h3){color:var(--ink)}
+.portfolio-theme :is(.profile-layout h2 em,.work-intro h2 em,.expertise-head h2 em){color:var(--accent)}
+.portfolio-theme :is(.profile-copy p,.work-intro p,.case p,.story-step>p:not(.step-period),.story-step li,.expertise-grid p,.proof-row p){color:var(--muted);opacity:1}
+.portfolio-theme .profile-portrait small{color:var(--subtle)}
+.portfolio-theme .profile-portrait:hover img{box-shadow:8px 8px 0 #19313d}
+.portfolio-theme .strength-marquee{background:var(--surface);color:var(--muted);border-block:1px solid var(--line)}
+.portfolio-theme .sticky-visual{background:var(--page-bg);border-color:var(--line)}
+.portfolio-theme :is(.sticky-visual>strong,.visual-company,.step-period,.case-index,.proof-row strong){color:var(--accent)}
+.portfolio-theme :is(.sticky-visual>p:first-child,.visual-place,.chapter-count){color:var(--subtle)}
+.portfolio-theme :is(.story-step,.story-step ul,.story-step li,.case,.credentials,.contact-meta,.contact-section footer){border-color:var(--line)}
+.portfolio-theme .story-step h4{color:var(--violet)}
+.portfolio-theme .story-step li:before,.portfolio-theme .visual-rule span{background:var(--accent)}
+.portfolio-theme .visual-rule{background:var(--line)}
+.portfolio-theme .case{background:transparent}
+.portfolio-theme .case:hover{background:#7bdde908}
+.portfolio-theme .case:after{color:var(--accent)}
+.portfolio-theme .case-main strong{color:#c7d8e6}
+.portfolio-theme .case-label{color:var(--subtle)}
+.portfolio-theme .case-tags span{border-color:var(--line);background:#0a1420;color:var(--muted)}
+.portfolio-theme .expertise-grid article,.portfolio-theme .expertise-grid article:nth-child(2n){background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.portfolio-theme .expertise-grid article:hover{background:var(--surface-hover);border-color:#7bdde94d}
+.portfolio-theme .expertise-grid article>span{color:var(--subtle);opacity:1}
+.portfolio-theme .expertise-grid svg{color:var(--accent)}
+.portfolio-theme .credentials>p,.portfolio-theme .credentials small{color:var(--subtle);opacity:1}
+.portfolio-theme .contact-section:before{color:#7bdde908}
+.portfolio-theme .contact-copy>.kicker{color:var(--subtle)}
+.portfolio-theme .contact-copy>a{color:var(--accent)}
+.portfolio-theme .contact-meta span{color:var(--subtle);opacity:1}
+.portfolio-theme .contact-meta a,.portfolio-theme .contact-meta p{color:var(--muted)}
+.portfolio-theme .contact-section footer{color:var(--subtle)}
+.portfolio-theme main .training-promo{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.portfolio-theme main .training-promo .kicker{color:var(--accent)}
+.portfolio-theme main .training-promo>p:not(.kicker){color:var(--muted)}
+.portfolio-theme .button.dark{background:#d9f2f5;color:#06131b;border-color:transparent}
+.portfolio-theme .button.dark:hover{background:#b8e9ee}
+.portfolio-theme a:focus-visible{outline-color:var(--accent)}
+/* Match the construction overlay to the same deep canvas. */
+.portfolio-theme~.site-build-overlay .site-build-wire i{background:#040910}
+.site-build-overlay .site-build-wire i{background:#040910}
+@media(max-width:600px){.portfolio-theme .mentoring-frame{padding-top:28px}}
