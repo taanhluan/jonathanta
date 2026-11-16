@@ -11,7 +11,13 @@ export default function ParticleHero() {
     <div className="cinematic-stage">
       <div className="ferrofluid-atmosphere"/><FerrofluidCloud section={section} paused={paused}/>
       <div className="cinematic-shade"/>
-      <h1 className="cinematic-sr">Complexity, meet clarity.</h1>
+      <div className="hero-positioning">
+        <p className="hero-eyebrow">Tạ Anh Luận / Jonathan Ta</p>
+        <h1>Banking complexity.<br/><em>Clear product direction.</em></h1>
+        <p className="hero-role">Lead Business Analyst · Product Owner</p>
+        <p className="hero-summary">Connecting business needs, stakeholder priorities, and technology delivery across digital banking, payments, and core banking integration.</p>
+        <div className="hero-actions"><a href="#experience">Explore experience <ArrowUpRight size={16}/></a><a href="Ta-Anh-Luan-CV.pdf" download>Download CV <Download size={16}/></a></div>
+      </div>
       <div className="cinematic-bottom">
         <p>Human thinking.<br/>Product impact.</p>
         <div className="cinematic-links"><a href="#profile">Profile</a><a href="#work">Selected work</a><a href="#experience">Experience</a><a href="#expertise">Expertise</a><a href="#/dao-tao-ba">BA Mentoring</a><a href="Ta-Anh-Luan-CV.pdf" download>Download CV <Download size={13}/></a></div>

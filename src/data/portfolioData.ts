@@ -88,9 +88,9 @@ export const aboutData = {
   eyebrow: "Executive Profile",
   title: "A principal-level business and product partner for banking transformation.",
   paragraphs: [
-    "Ta Anh Luan is positioned as a senior business and product professional focused on turning ambiguity into actionable delivery direction for banking and financial services teams.",
-    "His profile emphasizes calm stakeholder facilitation, requirement discovery, backlog refinement, workflow understanding, and close collaboration with delivery teams to move from business need to product outcome with clarity.",
-    "Across digital banking and BFSI environments, he brings a strategic, execution-oriented mindset that balances business value, operational practicality, and implementation readiness.",
+    "I turn complex banking needs into clear requirements, aligned priorities, and actionable delivery plans. As a Lead Business Analyst and Product Owner, I connect business stakeholders with technology teams.",
+    "My work spans corporate digital banking, Backbase–Temenos T24 integration, Payment Hub, and AML integration, alongside experience in consumer finance, insurance, and e-commerce.",
+    "I facilitate workshops, challenge unclear requirements, make trade-offs explicit, and shape product backlogs around business priorities and implementation constraints.",
   ],
   pillars: [
     "Bridging business stakeholders and product delivery teams",
@@ -114,9 +114,32 @@ export const strengths = [
 
 export const experiences = [
   {
+    company: "Datum Consulting",
+    role: "Lead Business Analyst | Product Owner",
+    period: "November 2025 - Present",
+    location: "Vietnam | Hybrid",
+    summary: "Business analysis and product ownership for banking transformation, connecting stakeholder priorities with clear requirements and delivery planning.",
+    responsibilities: [
+      "Clarify business needs, scope, dependencies, and acceptance expectations with stakeholders and delivery teams.",
+      "Shape and prioritize product backlogs to support implementation decisions.",
+      "Support BA development through mentoring, practical training, and knowledge sharing.",
+    ],
+  },
+  {
+    company: "Dai-ichi Life Vietnam",
+    role: "Senior Business Analyst",
+    period: "July 2025 - December 2025",
+    location: "Vietnam",
+    summary: "Business analysis in insurance, with a focus on analysis planning, operational understanding, and stakeholder requirements.",
+    responsibilities: [
+      "Support business analysis planning and requirements clarification.",
+      "Analyze operational needs and communicate requirements with stakeholders.",
+    ],
+  },
+  {
     company: "Axon Active Vietnam",
     role: "Product Owner",
-    period: "October 2024 - Now",
+    period: "November 2024 - June 2025",
     location: "Vietnam | Migros Bank (Switzerland)",
     summary:
       "Contributed to digital banking product initiatives for Migros Bank in Switzerland, helping connect business intent with delivery execution in a regulated, high-trust environment.",
@@ -142,20 +165,6 @@ export const experiences = [
     ],
   },
   {
-    company: "FPT Software",
-    role: "Project Manager - Scrum Master",
-    period: "April 2022 - November 2022",
-    location: "US, UK, India | B2C E-Commerce, Manufacturing",
-    summary:
-      "Managed Agile and hybrid delivery across B2C e-commerce and manufacturing projects, coordinating scopes, schedules, budgets, teams, and customer communication across US, UK, and India working environments.",
-    responsibilities: [
-      "Communicated project scope, schedules, and budgets with customers and contractors.",
-      "Prepared Jira and Excel financial reports including billing, overhead, and rate calculations.",
-      "Defined schedules, allocated resources, monitored progress, and supported a 40+ member team.",
-      "Resolved cross-functional issues across BA, QA, and development teams to keep deliverables on time.",
-    ],
-  },
-  {
     company: "Xebia Group - ABBank Project",
     role: "Senior Business Analyst",
     period: "November 2022 - October 2023",
@@ -167,6 +176,20 @@ export const experiences = [
       "Oversaw Backbase and T24 integration to support functionality and data flow.",
       "Conducted workshops for value-stream improvement, technology adoption, and leadership effectiveness.",
       "Delivered key functionality including lending solutions, eKYC, and transaction banking services.",
+    ],
+  },
+  {
+    company: "FPT Software",
+    role: "Project Manager - Scrum Master",
+    period: "April 2022 - November 2022",
+    location: "US, UK, India | B2C E-Commerce, Manufacturing",
+    summary:
+      "Managed Agile and hybrid delivery across B2C e-commerce and manufacturing projects, coordinating scopes, schedules, budgets, teams, and customer communication across US, UK, and India working environments.",
+    responsibilities: [
+      "Communicated project scope, schedules, and budgets with customers and contractors.",
+      "Prepared Jira and Excel financial reports including billing, overhead, and rate calculations.",
+      "Defined schedules, allocated resources, monitored progress, and supported a 40+ member team.",
+      "Resolved cross-functional issues across BA, QA, and development teams to keep deliverables on time.",
     ],
   },
   {
@@ -255,58 +278,11 @@ export const experiences = [
   },
 ];
 
-export const experienceSceneEntries = [
-  {
-    company: "Axon Active Viet Nam",
-    role: "Product Owner",
-    period: "October 2024 - Now",
-  },
-  {
-    company: "BIC Bank Cambodia",
-    role: "Senior Business Analyst / Product Owner",
-    period: "October 2023 - October 2024",
-  },
-  {
-    company: "Xebia Group - ABBank Project",
-    role: "Senior Business Analyst",
-    period: "November 2022 - October 2023",
-  },
-  {
-    company: "FPT Software",
-    role: "Project Manager - Scrum Master",
-    period: "April 2022 - November 2022",
-  },
-  {
-    company: "Amaris Consulting - Mantu Group",
-    role: "Senior Business Analyst - Scrum Master",
-    period: "January 2021 - April 2022",
-  },
-  {
-    company: "JACCS Financial Group",
-    role: "Senior Business Analyst",
-    period: "August 2020 - January 2021",
-  },
-  {
-    company: "Innotech",
-    role: "Senior Business Analyst",
-    period: "May 2020 - August 2020",
-  },
-  {
-    company: "Home Credit",
-    role: "Project Coordinator / Business Analyst",
-    period: "June 2018 - May 2020",
-  },
-  {
-    company: "Maersk Line",
-    role: "Technical Support",
-    period: "April 2017 - June 2018",
-  },
-  {
-    company: "Freelancer",
-    role: "Freelancer",
-    period: "2014 - 2016",
-  },
-] as const;
+export const experienceSceneEntries = experiences.map(({ company, role, period }) => ({
+  company,
+  role,
+  period,
+}));
 
 export const caseStudies = [
   {
@@ -367,6 +343,8 @@ export const expertiseAreas = [
 
 export const learningData = {
   certifications: [
+    { title: "Professional Scrum Product Owner I (PSPO I)", meta: "Issued December 2024" },
+    { title: "Advanced Business Analysis", meta: "35 IIBA PDUs · Training completed January 2025" },
     { title: "TOEIC Certificate", meta: "Score 800 | 2014" },
     { title: "PMP Exam Prep Seminar", meta: "2022" },
     {

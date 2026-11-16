@@ -29,3 +29,17 @@
 .ferrofluid-hint{position:absolute;left:50%;bottom:23%;transform:translateX(-50%);font:8px/1.5 Arial,sans-serif;letter-spacing:.18em;color:#9fced799;pointer-events:none;white-space:nowrap}
 @media(max-width:600px){.ferrofluid-hint{bottom:36%;font-size:7px;letter-spacing:.1em}}
 @media(prefers-reduced-motion:reduce){.ferrofluid-hint{display:none}}
+
+/* Keep professional context readable independently of the ambient scene. */
+.hero-positioning{position:absolute;z-index:2;top:24%;left:8%;width:min(690px,78vw);padding:28px 32px;border:1px solid #ffffff26;border-radius:20px;background:linear-gradient(120deg,#040910eb,#040910b8);backdrop-filter:blur(12px);color:#fff}
+.hero-eyebrow{margin:0 0 20px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#b8dce5}
+.hero-positioning h1{margin:0;font-size:clamp(36px,4.8vw,76px);line-height:1.05;letter-spacing:-.045em;font-weight:500}
+.hero-positioning h1 em{font-weight:400;color:#9de7ef}
+.hero-role{margin:22px 0 12px;font-size:16px;color:#eef3fa}
+.hero-summary{max-width:540px;font-size:15px;line-height:1.7;color:#bccbd7;margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.hero-actions a{display:inline-flex;align-items:center;gap:10px;padding:11px 15px;border:1px solid #ffffff59;border-radius:30px;font-size:12px;color:#fff;text-decoration:none}
+.hero-actions a:first-child{background:#eaf3f8;color:#071019;border-color:#eaf3f8}
+.hero-actions a:hover{outline:1px solid #9de7ef}
+@media(max-width:600px){.hero-positioning{top:18%;left:6%;width:88%;padding:20px}.hero-positioning h1{font-size:36px}.hero-eyebrow{margin-bottom:14px}.hero-role{font-size:13px;margin-top:16px}.hero-summary{font-size:13px}.hero-actions{margin-top:16px}.cinematic-bottom{bottom:12vh}.cinematic-bottom>p{display:none}}
+@media(max-height:700px) and (min-width:601px){.hero-positioning{top:17%;padding:20px 28px}.hero-positioning h1{font-size:42px}.hero-eyebrow{margin-bottom:10px}.hero-summary{font-size:13px}.hero-role{margin-top:12px}.hero-actions{margin-top:12px}}

@@ -67,7 +67,7 @@ export default function CareerExperience() {
       <div className="career-stage">
         <div ref={visual} className="career-visual">
           <div className="career-year">{year}<span>CHAPTER {String(active + 1).padStart(2, '0')}</span></div>
-          {light ? <div className="career-identity" key={item.company}><div className="career-logo-panel">{brand ? <img className={/home credit/i.test(item.company)?'career-logo-white':''} src={`${import.meta.env.BASE_URL}logos/${brand[0]}`} alt={brand[1]} onError={event=>{event.currentTarget.hidden=true;event.currentTarget.parentElement?.setAttribute('data-unavailable','true')}}/> : null}<span className="career-brand-name">{brand ? brand[1] : 'Independent practice'}</span></div><div className="career-identity-rule"><span/></div><div className="career-identity-caption"><span>{item.period}</span><span>0{active+1} — {String(count).padStart(2,'0')}</span></div><p className="career-identity-note">{item.location}</p></div> : <div ref={fluidHost} className="career-fluid"><FerrofluidCloud section={fluidHost} paused={paused} viewScale={2.5} sceneProgress={scene}/></div>}
+          {light ? <div className="career-identity" key={item.company}><div className="career-logo-panel">{brand ? <img className={/home credit/i.test(item.company)?'career-logo-white':''} src={`${import.meta.env.BASE_URL}logos/${brand[0]}`} alt={brand[1]} onError={event=>{event.currentTarget.hidden=true;event.currentTarget.parentElement?.setAttribute('data-unavailable','true')}}/> : null}<span className="career-brand-name">{brand ? brand[1] : item.company}</span></div><div className="career-identity-rule"><span/></div><div className="career-identity-caption"><span>{item.period}</span><span>0{active+1} — {String(count).padStart(2,'0')}</span></div><p className="career-identity-note">{item.location}</p></div> : <div ref={fluidHost} className="career-fluid"><FerrofluidCloud section={fluidHost} paused={paused} viewScale={2.5} sceneProgress={scene}/></div>}
           <div className="career-visual-caption"><span>SHAPED BY EXPERIENCE</span>{!light && <button onClick={() => setPaused(value => !value)} aria-label={paused ? 'Resume career animation' : 'Pause career animation'} aria-pressed={paused}>{paused ? <Play size={13}/> : <Pause size={13}/>}</button>}</div>
         </div>
         <div ref={body} className="career-copy">
@@ -75,7 +75,7 @@ export default function CareerExperience() {
             <p className="career-period">{item.period}</p><h2>{item.company}</h2><h3>{item.role}</h3>
             <p className="career-place"><MapPin size={13}/>{item.location}</p>
             <p className="career-summary">{item.summary}</p>
-            <ul>{item.responsibilities.slice(0, 3).map(text => <li key={text}>{text}</li>)}</ul>
+            <ul>{item.responsibilities.map(text => <li key={text}>{text}</li>)}</ul>
           </div>
         </div>
       </div>
