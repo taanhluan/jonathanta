@@ -17,6 +17,12 @@ import {
   UsersRound,
 } from "lucide-react";
 
+export const cvData = {
+  href: `${import.meta.env.BASE_URL}Ta-Anh-Luan-CV.pdf?v=20261120`,
+  filename: "Ta-Anh-Luan-CV.pdf",
+  pages: 2,
+};
+
 export const sections = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
@@ -53,7 +59,7 @@ export const heroData = {
   ctas: [
     { label: "View Experience", href: "#experience", primary: true },
     { label: "Contact Me", href: "#contact", primary: false },
-    { label: "Download CV", href: "Ta-Anh-Luan-CV.pdf", primary: false, download: true },
+    { label: "Download CV", href: cvData.href, primary: false, download: true },
   ],
   operatingLens: [
     "Translates complex business requirements into structured product direction.",

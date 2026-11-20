@@ -1,0 +1,137 @@
+{
+  "name": "Tạ Anh Luận",
+  "title": "Lead Business Analyst | Product Owner",
+  "location": "Ho Chi Minh City, Vietnam",
+  "phone": "+84 939 451 139",
+  "email": "taanhluan@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/taanhluan/",
+  "portfolio": "https://taanhluan.github.io/jonathanta/",
+  "summary": "Business analyst and product owner focused on digital banking, consumer finance and insurance. Connects stakeholder needs with clear requirements, prioritized backlogs and delivery plans. Experience includes Migros Bank, BIC Bank Cambodia and ABBank, with work across Backbase, Temenos T24, payments and AML integration.",
+  "expertise": [
+    [
+      "Business analysis",
+      "Requirements elicitation, stakeholder workshops, process analysis, functional specifications, user stories and acceptance criteria."
+    ],
+    [
+      "Product & delivery",
+      "Backlog prioritization, sprint planning, refinement, UAT, change assessment and cross-functional coordination."
+    ],
+    [
+      "Banking & BFSI",
+      "Digital and corporate banking, lending, eKYC, payments, AML, consumer finance and insurance."
+    ],
+    [
+      "Tools & platforms",
+      "Backbase, Temenos T24, EPIC, Jira, Confluence, Figma and draw.io."
+    ]
+  ],
+  "recent": [
+    {
+      "company": "Datum Consulting",
+      "role": "Lead Business Analyst | Product Owner",
+      "period": "Nov 2025 - Present",
+      "bullets": [
+        "Clarify banking requirements, scope, dependencies and acceptance expectations with stakeholders and delivery teams.",
+        "Shape and prioritize product backlogs; support BA development through mentoring and practical training."
+      ]
+    },
+    {
+      "company": "Dai-ichi Life Vietnam",
+      "role": "Senior Business Analyst | Insurance",
+      "period": "Jul 2025 - Dec 2025",
+      "bullets": [
+        "Supported analysis planning, assessed operational needs and clarified insurance requirements with business stakeholders."
+      ]
+    },
+    {
+      "company": "Axon Active Vietnam",
+      "role": "Product Owner | Migros Bank, Switzerland",
+      "period": "Nov 2024 - Jun 2025",
+      "bullets": [
+        "Owned the digital banking backlog, balancing business value, customer needs and compliance requirements.",
+        "Coordinated bank stakeholders and Agile teams through sprint planning, refinement, reviews and retrospectives."
+      ]
+    },
+    {
+      "company": "BIC Bank Cambodia",
+      "role": "Senior Business Analyst / Product Owner",
+      "period": "Oct 2023 - Oct 2024",
+      "bullets": [
+        "Led backlog prioritization and sprint planning for digital and corporate banking initiatives.",
+        "Contributed to Backbase and T24 integration, AML integration and centralized Payment Hub rollout; aligned requirements across business and solution teams."
+      ]
+    },
+    {
+      "company": "Xebia Group - ABBank Project",
+      "role": "Senior Business Analyst | Digital Corporate Banking",
+      "period": "Nov 2022 - Oct 2023",
+      "bullets": [
+        "Led business analysis for ABBank's digital corporate banking using Backbase and Temenos T24.",
+        "Facilitated stakeholder workshops and supported platform integration, lending, eKYC and transaction banking delivery."
+      ]
+    }
+  ],
+  "earlier": [
+    {
+      "company": "FPT Software",
+      "role": "Project Manager / Scrum Master | E-commerce & Manufacturing",
+      "period": "Apr 2022 - Nov 2022",
+      "bullets": [
+        "Coordinated scope, schedules, budgets and resources across US, UK and India delivery environments; supported a 40+ member team across BA, QA and development."
+      ]
+    },
+    {
+      "company": "Amaris Consulting - Mantu Group",
+      "role": "Senior Business Analyst / Scrum Master | Insurance",
+      "period": "Jan 2021 - Apr 2022",
+      "bullets": [
+        "Gathered requirements and prepared functional specifications for insurance digital transformation; coordinated multidisciplinary teams, testing, UAT and data migration support."
+      ]
+    },
+    {
+      "company": "JACCS Financial Group",
+      "role": "Senior Business Analyst | Consumer Finance & Cards",
+      "period": "Aug 2020 - Jan 2021",
+      "bullets": [
+        "Assessed business change requests, clarified specifications with vendors and business divisions, and developed test scenarios and implementation plans for card-business changes."
+      ]
+    },
+    {
+      "company": "Innotech",
+      "role": "Senior Business Analyst | Financial Digital Transformation",
+      "period": "May 2020 - Aug 2020",
+      "bullets": [
+        "Defined business needs and solution scope for a short-term project; translated stakeholder requirements into functional designs, business requirements and a prioritized backlog."
+      ]
+    },
+    {
+      "company": "Home Credit",
+      "role": "Project Coordinator / Business Analyst",
+      "period": "Jun 2018 - May 2020",
+      "bullets": [
+        "Translated business requirements into EPIC configuration and software specifications; analyzed workflows, tested configurations and supported releases, data migration and technology transfer in Prague."
+      ]
+    },
+    {
+      "company": "Maersk Line",
+      "role": "Technical Support | IT Operational Risk",
+      "period": "Apr 2017 - Jun 2018",
+      "bullets": [
+        "Supported risk intake, assessment, registers, remediation tracking and management reporting across technology product portfolios."
+      ]
+    }
+  ],
+  "earlyCareer": "Freelancer | 2014 - 2016: Independent client work, request clarification and delivery coordination.",
+  "mentoring": "Bank - Finance instructor for COLE's Business Analyst Domain Bootcamp. Mentors business analysts in banking, financial services and insurance, from foundational analysis to more complex project responsibilities.",
+  "education": {
+    "school": "Industrial University of Ho Chi Minh City",
+    "study": "Network Engineering / Information Technology",
+    "period": "2014 - 2018"
+  },
+  "credentials": [
+    "Professional Scrum Product Owner I (PSPO I) | Dec 2024",
+    "Advanced Business Analysis training | 35 IIBA PDUs | Jan 2025",
+    "PMP Exam Prep Seminar; Scrum Certification; Fundamentals of Agile | 2022",
+    "TOEIC | Score 800 | 2014"
+  ]
+}

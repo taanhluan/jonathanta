@@ -71,3 +71,12 @@ Visual reference: [Jeremy Spaunhurst — PROJECT #7 FERROFLUID IN MOTION](https:
 ## Pinned career journey
 
 `CareerExperience.tsx` keeps the full Experience stage pinned for ten scroll-driven milestones. `careerTimeline.ts` defines each reading interval and reversible fly-in/fly-out frame. The final milestone releases naturally into Selected Work. Navigation dots and previous/next buttons allow direct navigation; short windows retain an internally scrollable detail region. Reduced-motion mode removes flight transforms. The career ferrofluid reuses one renderer and changes its shape and angle with timeline progress.
+
+
+## Maintaining the downloadable CV
+
+The public PDF is a two-page English CV with embedded Unicode fonts and clickable contact links. The concise content is curated in `content/cv.json`, based on the existing CV and `src/data/portfolioData.ts`. Keep role names and dates aligned with the portfolio; do not add unsupported metrics or credentials. Training courses are labeled as professional development.
+
+To regenerate, install Python `reportlab` and run `python3 scripts/generate_cv.py`. The generator uses system Arial, Liberation Sans or DejaVu Sans; set `CV_FONT_DIR` for another supported font directory. It refuses content that intrudes into the footer. Render both pages for visual review and check text extraction before deployment.
+
+`cvData` in `src/data/portfolioData.ts` owns the download URL and filename. Bump its version query when replacing the PDF so visitors receive the updated document. Both active Download CV buttons use it.
