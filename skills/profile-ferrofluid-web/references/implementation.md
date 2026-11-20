@@ -186,3 +186,10 @@ Verification: build and diff checks passed. Runtime handler checks cover all quo
 `TrainingBrands.tsx` replaces six plain names under the training hero with locally hosted real logos. Source/provenance is recorded in `docs/TRAINING-LOGO-SOURCES.md`. Migros Bank uses its official inline desktop SVG; ABBank Vietnam, JACCS Vietnam, Home Credit Vietnam and COLE assets come directly from official headers/footers. BIC Bank Cambodia's historical mark was extracted from an official Cambodia IP trademark gazette, avoiding BIC Insurance/BIDC/BIC Laos confusion. Its successor iBank is the current destination link. No logo was generated or redrawn.
 
 Dark-strip presentation uses monochrome CSS with increased opacity on hover. Preserve intrinsic ratios and optically balanced per-brand widths rather than stretching marks to a common rectangle. BIC's opaque white background uses inverted grayscale and screen blending; the other files preserve alpha. Six columns desktop / three columns under 800px; each brand is a link with image alternative and failed-image text fallback. Build and asset/XML checks passed; raster assets inspected locally.
+
+
+## Layout and navigation repair — 2026-11-20
+
+The recruiter introduction had an absolutely positioned card competing with absolute footer links. The hero now uses normal grid flow for its card and auxiliary links; only decorative layers and corner controls are absolute. It has natural height with a viewport minimum, removing unnecessary intro pinning while preserving the independent pinned career stage. Header active state uses a scroll-position reading line rather than intersection ratios, which are unreliable for the long career section. Portfolio hashes explicitly align the destination, including initial and cross-route navigation.
+
+Verified with Chrome: 1440/1024/390px hero has no card/link overlap or horizontal page overflow; Experience CTA aligns the section and active menu; all 12 career milestones reached; BA training route mounts; no page JavaScript errors. TypeScript/Vite build and diff whitespace checks passed. Preserved ferrofluid, light/dark themes, career pinning and training content.
