@@ -1,3 +1,4 @@
+import PortfolioHeader from "./components/layout/PortfolioHeader";
 import AnimatedTitle from "./components/motion/AnimatedTitle";
 import { MotionConfig } from "framer-motion";
 import { ScrollPanel, Reveal } from "./components/motion/ScrollPanel";
@@ -34,19 +35,6 @@ function useScrollChapter() {
   return active;
 }
 
-function Header({active}:{active:string}) {
-  const [overScene, setOverScene] = useState(true);
-  useEffect(() => {
-    const update = () => setOverScene((document.getElementById('intro')?.getBoundingClientRect().bottom ?? 0) > 80);
-    update(); window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
-  }, []);
-  return <header className={`site-header${overScene ? ' over-scene' : ''}`}>
-  <a className="wordmark" href="#intro">TAL<span>.</span></a>
-  <nav aria-label="Main navigation">{chapters.slice(1).map(id=><a key={id} href={`#${id}`} aria-current={active===id?"location":undefined} className={active===id?"active":""}>{id==="work"?"Selected work":id}</a>)}<a className="nav-mentoring" href="#/dao-tao-ba">BA Mentoring</a></nav>
-  <a className="header-training-link" href="#/dao-tao-ba">BA Mentoring</a>
-  <a className="header-contact" href={`mailto:${contactData.email}`}>Let’s talk <ArrowUpRight size={15}/></a>
-</header> }
 
 
 function Profile(){return <section id="profile" className="chapter profile-section"><div className="section-number">02 / Profile</div><div className="profile-layout"><ScrollPanel amount={65}><h2><AnimatedTitle text="Clarity is not a deliverable."/><br/><em><AnimatedTitle text="It is how delivery moves."/></em></h2><div className="profile-portrait"><img src={heroData.portrait.src} alt={heroData.portrait.alt} loading="lazy"/><span>Tạ Anh Luận<br/><small>Human thinking. Product impact.</small></span></div></ScrollPanel><div className="profile-copy"><p className="profile-role">Lead Business Analyst / Product Owner</p>{aboutData.paragraphs.map((p,i)=><Reveal key={p} delay={i*.08}><p>{p}</p></Reveal>)}<div className="profile-actions"><a className="button dark" href="Ta-Anh-Luan-CV.pdf" download>Download CV <ArrowUpRight size={16}/></a><a href={contactData.linkedin} target="_blank" rel="noreferrer">LinkedIn profile ↗</a><a href="#contact">Discuss an opportunity ↗</a></div></div></div><div className="strength-marquee"><div>{[...strengths,...strengths].map((s,i)=><span key={`${s.title}-${i}`}>{s.title}</span>)}</div></div></section>}
@@ -60,5 +48,5 @@ function Contact(){return <section id="contact" className="chapter contact-secti
 
 export default function Portfolio(){const active=useScrollChapter();const {scrollYProgress}=useScroll();const progress=scrollYProgress;
 
-return <MotionConfig reducedMotion="user"><div className="portfolio-theme"><CursorGlow/><motion.div className="reading-progress" style={{scaleX:progress}}/><Header active={active}/><SiteBuild><a className="skip-content" href="#profile">Skip to profile</a><main id="main-content"><ParticleHero/><Reveal className="mentoring-frame"><section className="training-promo" lang="vi"><p className="kicker">Đào tạo & Mentoring / Tạ Anh Luận</p><h2>Phát triển nghề BA trong Ngân hàng – Dịch vụ tài chính – Bảo hiểm.</h2><p>Lộ trình từ Fresher đến Senior: xây nền tảng, đào sâu nghiệp vụ BFSI và nâng cao tư duy phân tích qua các tình huống thực hành.</p><a className="button dark" href="#/dao-tao-ba">Khám phá khóa học & đăng ký tư vấn <ArrowUpRight size={17}/></a></section></Reveal><Profile/><CareerExperience/><Work/><Expertise/><Contact/></main></SiteBuild></div></MotionConfig>}
+return <MotionConfig reducedMotion="user"><div className="portfolio-theme"><CursorGlow/><motion.div className="reading-progress" style={{scaleX:progress}}/><PortfolioHeader active={active}/><SiteBuild><a className="skip-content" href="#profile">Skip to profile</a><main id="main-content"><ParticleHero/><Reveal className="mentoring-frame"><section className="training-promo" lang="vi"><p className="kicker">Đào tạo & Mentoring / Tạ Anh Luận</p><h2>Phát triển nghề BA trong Ngân hàng – Dịch vụ tài chính – Bảo hiểm.</h2><p>Lộ trình từ Fresher đến Senior: xây nền tảng, đào sâu nghiệp vụ BFSI và nâng cao tư duy phân tích qua các tình huống thực hành.</p><a className="button dark" href="#/dao-tao-ba">Khám phá khóa học & đăng ký tư vấn <ArrowUpRight size={17}/></a></section></Reveal><Profile/><CareerExperience/><Work/><Expertise/><Contact/></main></SiteBuild></div></MotionConfig>}
 

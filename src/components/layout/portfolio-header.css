@@ -1,0 +1,46 @@
+/* Self-contained header: legacy .site-header rules do not own this surface. */
+.portfolio-header{
+  --ph-bg:#08121ee8;--ph-ink:#eef3fa;--ph-muted:#b2c0ce;--ph-line:#b9d5ee26;
+  --ph-accent:#9de7ef;--ph-hover:#c2dfef0d;--ph-selected:#c2dfef12;
+  position:fixed;z-index:80;top:16px;left:50%;transform:translateX(-50%);
+  width:calc(100% - 48px);max-width:1320px;min-height:72px;
+  display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"brand nav actions";align-items:center;gap:24px;
+  padding:12px 16px 12px 22px;border:1px solid var(--ph-line);border-radius:18px;
+  background:var(--ph-bg);color:var(--ph-ink);box-shadow:0 8px 32px #00000018;
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);font-family:Arial,Helvetica,sans-serif;
+}
+.ph-brand{grid-area:brand;display:flex;align-items:center;gap:14px;width:fit-content;text-decoration:none}
+.ph-monogram{font-size:26px;line-height:1;font-weight:800;letter-spacing:-1.8px;color:var(--ph-ink)}
+.ph-monogram>span{color:var(--ph-accent)}
+.ph-identity{border-left:1px solid var(--ph-line);padding-left:14px;font-size:12px;font-weight:600;line-height:1.4;white-space:nowrap}
+.ph-identity small{display:block;margin-top:3px;font-size:9px;font-weight:400;color:var(--ph-muted)}
+.ph-nav{grid-area:nav;justify-self:end;display:flex;align-items:center;gap:3px}
+.ph-nav>a{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 12px;border:1px solid transparent;border-radius:9px;white-space:nowrap;font-size:13px;line-height:1.2;color:var(--ph-muted);transition:background .18s,color .18s,border-color .18s;text-decoration:none}
+.ph-nav>a:hover{color:var(--ph-ink);background:var(--ph-hover)}
+.ph-nav>a[aria-current="location"]{color:var(--ph-ink);background:var(--ph-selected);border-color:var(--ph-line)}
+.ph-nav>a.ph-mentor{margin-left:12px;color:var(--ph-accent);border-color:var(--ph-line)}
+.ph-nav>a.ph-mentor:hover{border-color:var(--ph-accent)}
+.ph-actions{grid-area:actions;display:flex;align-items:center;gap:8px}
+.ph-contact{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:42px;padding:0 17px;border-radius:10px;background:#eaf3f8;color:#071019;font-size:12px;font-weight:600;white-space:nowrap;transition:background .18s}
+.ph-contact:hover{background:#c9ecf1}
+.ph-toggle{display:none;width:42px;height:42px;align-items:center;justify-content:center;border:1px solid var(--ph-line);border-radius:10px;background:transparent;color:var(--ph-ink);cursor:pointer}
+.portfolio-header :is(a,button):focus-visible{outline:2px solid var(--ph-accent);outline-offset:4px}
+html[data-theme="light"] .portfolio-header[data-scene="false"]{--ph-bg:#f8fbfdf2;--ph-ink:#142b40;--ph-muted:#435e74;--ph-line:#1d486326;--ph-accent:#087b8b;--ph-hover:#183c5008;--ph-selected:#183c5010;box-shadow:0 8px 32px #12344c0a}
+html[data-theme="light"] .portfolio-header[data-scene="false"] .ph-contact{background:#123c50;color:#fff}
+@media(max-width:1250px) and (min-width:1101px){.portfolio-header{gap:12px;padding-left:18px}.ph-identity{display:none}.ph-nav>a{padding-inline:11px}.ph-nav>a.ph-mentor{margin-left:6px}}
+@media(max-width:1100px){
+ .portfolio-header{grid-template-columns:1fr auto;grid-template-areas:"brand actions" "nav nav";gap:0;min-height:68px;padding:12px 14px 12px 20px}
+ .ph-toggle{display:flex}
+ .ph-nav{display:none;justify-self:stretch}
+ .portfolio-header[data-open="true"] .ph-nav{display:flex;flex-direction:column;align-items:stretch;gap:5px;margin-top:14px;padding-top:14px;border-top:1px solid var(--ph-line);max-height:calc(100svh - 130px);overflow-y:auto}
+ .ph-nav>a{justify-content:space-between;padding:14px 16px;font-size:14px;min-height:46px}
+ .ph-nav>a.ph-mentor{margin:8px 0 0}
+}
+@media(max-width:540px){
+ .portfolio-header{top:12px;width:calc(100% - 24px);border-radius:15px;padding:10px 10px 10px 16px;min-height:64px}
+ .ph-brand{gap:10px}.ph-monogram{font-size:24px}.ph-identity{padding-left:10px;font-size:11px}.ph-identity small{font-size:8px;max-width:135px;white-space:normal}
+ .ph-contact{width:40px;min-height:40px;padding:0}.ph-contact>span{display:none}.ph-toggle{width:40px;height:40px}
+}
+@media(max-width:360px){.ph-identity small{display:none}.ph-brand{gap:8px}.ph-identity{padding-left:8px}.ph-actions{gap:6px}}
+@media(prefers-reduced-motion:reduce){.portfolio-header *{transition:none}}
+@media(forced-colors:active){.portfolio-header{border-color:CanvasText}.ph-nav>a[aria-current="location"]{border-color:Highlight}.ph-toggle,.ph-nav>a.ph-mentor{border-color:ButtonText}}
